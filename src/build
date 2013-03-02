@@ -1,0 +1,19 @@
+if [ "$1" = "clean" ]
+then
+
+  ./_dist/site clean
+  rm -r _dist
+
+elif [ "$1" = "site" ]
+then
+
+  ./_dist/site build
+
+else
+
+  mkdir -p _dist
+  ghc -odir _dist -hidir _dist -O --make Site.hs -o _dist/site
+  ./_dist/site rebuild
+
+fi
+

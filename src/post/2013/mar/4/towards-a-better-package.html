@@ -1,0 +1,199 @@
+<article>
+
+<div class=meta>
+<span class=author>Sebastiaan Visser</span>
+<span class=date>March 2013</span>
+</div>
+
+<h1>Towards a better package</h1>
+
+<p>Hackage, the package repository for the Haskell programming language, has
+over 4700 package nowadays. This is a lot! More libraries for a programming
+language can generally be considered a good thing. But like everyone knows,
+package quality varies a lot and not all are easy to work with. There are some
+general guidelines that can make your package more user friendly: focus your
+public interface and documentation on usage not implementation, keep you code
+simple and don't over-engineer, be careful with chances between versions, etc.
+I would like to share a set of guidelines I personally use in an attempt to
+make my own Haskell package easier to work with.</p>
+
+<h2>Have a clear module structure</h2>
+
+<p>From a usability perspective the module structure of a package matters a
+lot. Modules are the top level building blocks of a library and tell a lot
+about what is has to offer.</p>
+
+<ul>
+
+  <li>
+    <p><em>Keep the module hierarchy flat.</em> Deeply nested hierarchies might
+    be correct from a theoretical point of view, but doesn't always benefit
+    your users. Shallow hierarchies are easier to grasp and bring focus to the
+    modules that are important.</p>
+  </li>
+
+  <li>
+    <p><em>Use a short top-level namespace.</em> There is no need for long
+    module prefixes when your creatively chosen package name suffices. A quick
+    <code>import Parsec</code> is more convenient than <code>import
+    Text.ParserCombinators.Parsec</code>.</p>
+  </li>
+
+  <li>
+    <p><em>One import, batteries included.</em> Have one top-level module that
+    exposes the biggest sane default of your library as possible. Requiring
+    users to import several modules to get even the most basic functionality is
+    annoying.  A common trick is directly export the most important functions
+    through the top-level module and expose everything else using module
+    re-exports.</p>
+  </li>
+
+</ul>
+
+<h2>Document package usage</h2>
+
+<p>Good documentation is a no-brainer upon which everyone agrees. Writing
+proper documentation takes a lot of work though. Maybe more than we can expect
+of every open-source volunteer and hobbyist. There are some ways to make a
+small amount of documentation matter. When users figure out how to use the
+package on a high-level, they'll figure the details out themselves
+eventually.</p>
+
+<ul>
+
+  <li>
+    <p><em>Focus documentation on usage, not implementation.</em> Focus on the
+    main use case, don't go into detail about the billion ways your generic
+    functions can be configured to work under all
+    circumstances.</p>
+  </li>
+
+  <li>
+    <p><em>Create a website with a tutorial.</em> Documentation within the
+    package is good for reference purposes, but is rarely a good starting
+    point. Just a few steps to get up and running is good enough most of the
+    time. Haskell code can be abstract and vague some times, concrete examples
+    help.</p>
+  </li>
+
+  <li>
+    <p><em>Think about the generated documentation.</em> The Haddock
+    documentation of a package is probably the first thing users see. Make sure
+    there is some structure in there, similar functions grouped together, types
+    first, use section headers. Add some documentation that explains what the
+    functions and datatypes have to offer, not how they are
+    implemented.</p>
+  </li>
+
+  <li>
+    <p><em>Be honest about the shortcomings.</em> Users will figure them out
+    anyways.  Clearly documenting things that won't work as expected can save
+    people a lot of time.</p>
+  </li>
+
+</ul>
+
+<h2>Keep the code simple</h2>
+
+<p>TODO: Don't let people that say that Haskell is complicated by right.
+Keeping your code simple is not always easy, keeping your API simple can even
+be harder.</p>
+
+<ul>
+
+  <li>
+    <p><em>Keep type signatures simple.</em> Complicated type signatures are
+    hard to grasp, not only for beginners. Haskell allows for some really
+    generic code in additional type parameters sneak in easy. Keep the package
+    internals general, but expose sane defaults for first time users.</p>
+  </li>
+
+  <li>
+    <p><em>Avoid type classes.</em> Type classes are wonderful technology but
+    are the easiest way to obscure a library. Avoid them whenever possible.
+    TODO if it only saves you two explicit helper functions. Don't hide magic
+    behind complexity when you can keep things simple by being
+    explicit.</p>
+  </li>
+
+  <li>
+    <p><em>Avoid useless prefixes.</em> Code for qualified imports. Too much
+    two and three letter prefixes makes code cryptic and less appealing. Use
+    simple and short identifiers that make sense in the context of the package.
+    Don't be afraid for names clashes with the Prelude or other packages,
+    explicit imports and qualified import solve this problem.</p>
+  </li>
+
+</ul>
+
+<h2>Keep the package stable</h2>
+
+<p>Chances are a package isn't perfect, especially the first few releases. Be
+clear about what it does and what it doesn't. Assume people are actually using
+the package and changes to it <a href=http://xkcd.com/1172>will break their
+workflow</a><p>
+
+<ul>
+
+  <li>
+    <p><em>Stick to the Package Versioning Policy.</em> The PVP allows users to
+    keep their stack stable and avoid broken builds. Sneaking breaking changes
+    into a minor bump will most likely result in some red dots on a build
+    server somewhere. Although it can be useful to ignore version upper bounds
+    when developing, removing this precious information from the version number
+    would be a shame. Instructing our build tools build to ignore upper bounds
+    might be a better solution than skipping them altogether.</p>
+  </li>
+
+  <li>
+    <p><em>Prune the dependencies.</em> More dependencies make packages harder
+    to install and easier to break. Don't depend on entire stacks of extra
+    dependencies just for a few simple helper functions. Avoid reinventing the
+    wheel, but be pragmatic.</p>
+  </li>
+
+  <li>
+    <p><em>Don't hide big impact chances behind minor bumps.</em> Some changes
+    are major but don't change the API, be careful with these. Silently
+    changing a network request timeout to a tenth of it's original value in a
+    minor upgrade might break the user's network stack. Fixing an encoding bug
+    that has been the package for years? Chances are someone assumed this was
+    intended and now has a double encoding bug. Be explicit.</p>
+  </li>
+
+  <li>
+    <p><em>Have a changelog.</em> Seeing what has changed between version is
+    invaluable information. Both what the new version can add in value and what
+    it might break. Digging through git logs before an upgrade is
+    dreadful.</p>
+  </li>
+
+</ul>
+
+<h2>Encourage collaboration</h2>
+
+<ul>
+
+  <li>
+    <p><em>Host on Github.</em> Github made forking and pushing changes
+    upstream so easy. TODO</p>
+  </li>
+
+  <li>
+    <p><em>Expose internals.</em>. Export them either in a separate package or
+    in a namespace separate from the public API. Forking remains expensive.
+    Avoiding a fork by allowing a `Binary` instance for the otherwise opaque
+    data constructor through an internals module can save a lot time.</p>
+  </li>
+
+</ul>
+
+<hr>
+
+<p>Opinions vary and most library authors probably have their own list. The
+points on my list mostly arrived from my experience with existing Haskell
+libraries, most of which very high quality. But after seeing my share of real
+world Haskell, I would like to encourage people to think about the appearance
+of their libraries from a usage perspective just a bit more.</p>
+
+</article>

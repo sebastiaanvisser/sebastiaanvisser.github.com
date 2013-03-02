@@ -1,0 +1,164 @@
+{-# LANGUAGE OverloadedStrings #-}
+module Main where
+
+import Clay hiding (menu, contents)
+import Data.Monoid
+import Data.Text (Text)
+import Prelude hiding (all)
+
+main :: IO ()
+main = putCss $
+  do site
+     bodyColumn
+     menu
+     contents
+     theArticle
+     theFooter
+
+-------------------------------------------------------------------------------
+
+site :: Css
+site =
+  do html <> body ?
+       do sym margin  nil
+          sym padding nil
+
+     body ?
+       do background (png "bg", bgC)
+
+bodyColumn :: Css
+bodyColumn = "#body" ?
+  do centered
+     marginBottom (unit 5)
+     -- backgroundImage (png "tile")
+
+menu :: Css
+menu = nav ?
+  do uiFont
+     textAlign   (alignSide sideCenter)
+     marginTop   u1
+     paddingLeft u1
+     lineHeight  u2
+     a ? marginRight (px 20)
+
+contents :: Css
+contents = ".content" ?
+  do backgroundColor (setA 255 white)
+     padding         u1 u1 u3 u1
+
+theFooter :: Css
+theFooter = footer ?
+  do uiFont
+     color     (setA 140 txtC)
+     fontSize  (px 14)
+     textAlign (alignSide sideCenter)
+     margin    u1 nil u4 nil
+
+-------------------------------------------------------------------------------
+
+theArticle :: Css
+theArticle = article ?
+  do contentFont
+     Main.meta
+
+     star ?
+       do sym padding nil
+          sym margin  nil
+
+     hr ?
+       do border none nil white
+          paddingBottom u1
+
+     h1 <> h2 ?
+       do sym margin   nil
+          lineHeight   u2
+          marginTop    u1
+          color emC
+
+     h1 ?
+       do fontSize (px 24)
+          marginBottom u1
+
+     h2 ?
+       do fontSize (px 18)
+
+     p  ? marginBottom u1
+     ul ? paddingLeft  u2
+
+     a ?
+       do textDecoration none
+          color          linkC
+          hover & backgroundColor bgC
+
+     "em" ?
+       do fontWeight bold
+          fontStyle  normal
+          color emC
+
+     img ?
+       do marginLeft  auto
+          marginRight auto
+          display     block
+
+meta :: Css
+meta = ".meta" ?
+  do textAlign (alignSide sideRight)
+     Clay.span ?
+       do display  block
+          fontSize (pct 85)
+          color    (setA 160 txtC)
+
+-------------------------------------------------------------------------------
+
+centered :: Css
+centered =
+  do boxSizing   borderBox
+     width       (unit 25)
+     marginLeft  auto
+     marginRight auto
+
+contentFont :: Css
+contentFont =
+  do fontFamily ["Merriweather", "Georgia", "Times"] [serif]
+     fontSize   (px 16)
+     lineHeight u1
+     color      txtC
+     a ? color inherit
+
+uiFont :: Css
+uiFont =
+  do fontFamily    ["Open Sans", "Helvetixa", "Arial"] [sansSerif]
+     fontSize      (px 20)
+     lineHeight    u1
+     textTransform uppercase
+     a ?
+       do color          linkC
+          textDecoration none
+          hover &
+            do color      black
+               background white
+
+bgC, txtC, emC, linkC :: Color
+
+bgC   = rgb 246 246 246
+txtC  = rgb   0  20  40
+emC   = rgb  40  20   0
+linkC = rgb   0 100 180
+
+-------------------------------------------------------------------------------
+
+png :: Text -> BackgroundImage
+png im = url ("../image/" <> im <> ".png")
+
+unit :: Integer -> Size Abs
+unit = px . (* 24)
+
+nil :: Size Abs
+nil = px 0
+
+u1, u2, u3, u4 :: Size Abs
+u1 = unit 1
+u2 = unit 2
+u3 = unit 3
+u4 = unit 4
+
