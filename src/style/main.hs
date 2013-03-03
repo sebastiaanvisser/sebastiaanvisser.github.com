@@ -15,6 +15,8 @@ main = putCss $
      theArticle
      theFooter
 
+     photo
+
 -------------------------------------------------------------------------------
 
 site :: Css
@@ -35,7 +37,7 @@ bodyColumn = "#body" ?
 menu :: Css
 menu = nav ?
   do uiFont
-     textAlign   (alignSide sideCenter)
+     alignCenter
      marginTop   u1
      paddingLeft u1
      lineHeight  u2
@@ -45,16 +47,26 @@ contents :: Css
 contents = ".content" ?
   do backgroundColor (setA 255 white)
      padding         u1 u1 u3 u1
+     overview
 
 theFooter :: Css
 theFooter = footer ?
   do uiFont
      color     (setA 140 txtC)
      fontSize  (px 14)
-     textAlign (alignSide sideCenter)
+     alignCenter
      margin    u1 nil u4 nil
 
+photo :: Css
+photo = img # ".me" ? opacity 0.8
+
 -------------------------------------------------------------------------------
+
+overview :: Css
+overview =
+  ".read-more" ?
+    do marginTop (unit (-1))
+       fontSize  (pct 85)
 
 theArticle :: Css
 theArticle = article ?
@@ -86,7 +98,8 @@ theArticle = article ?
      ul ? paddingLeft  u2
 
      a ?
-       do textDecoration none
+       do animate
+          textDecoration none
           color          linkC
           hover & backgroundColor bgC
 
@@ -123,7 +136,6 @@ contentFont =
      fontSize   (px 16)
      lineHeight u1
      color      txtC
-     a ? color inherit
 
 uiFont :: Css
 uiFont =
@@ -134,6 +146,7 @@ uiFont =
      a ?
        do color          linkC
           textDecoration none
+          animate
           hover &
             do color      black
                background white
@@ -146,6 +159,16 @@ emC   = rgb  40  20   0
 linkC = rgb   0 100 180
 
 -------------------------------------------------------------------------------
+
+animate :: Css
+animate =
+  transitions
+    [ ("background-color" , sec 0.5, ease, sec 0)
+    , ("color"            , sec 0.2, ease, sec 0)
+    ]
+
+alignCenter :: Css
+alignCenter = textAlign (alignSide sideCenter)
 
 png :: Text -> BackgroundImage
 png im = url ("../image/" <> im <> ".png")
