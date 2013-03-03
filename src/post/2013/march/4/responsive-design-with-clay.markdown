@@ -82,13 +82,9 @@ When interested, you can find the full source code of this site, including the
 Clay stylesheet, [on my
 github](https://github.com/sebastiaanvisser/sebastiaanvisser.github.com).
 
-<!--
-
 <hr>
 
-Discuss on [Reddit](http://reddit.com/r/haskell/xxx),
-[Hacker News](http://news.ycombinator.com/xxx).
-
--->
+Discuss on [Reddit](http://www.reddit.com/r/haskell/comments/19lpzv/responsive_design_with_clay/)
+[Hacker News](http://news.ycombinator.com/item?id=5315653).
 
 </article>
