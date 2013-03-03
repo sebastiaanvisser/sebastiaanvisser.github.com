@@ -21,6 +21,12 @@ main = Text.putStrLn
           theFooter
           overview
 
+bgC, txtC, emC, linkC :: Color
+bgC   = rgb 246 246 246
+txtC  = rgb   0  20  40
+emC   = rgb  40  20   0
+linkC = rgb   0 100 180
+
 -------------------------------------------------------------------------------
 
 site :: Css
@@ -110,14 +116,16 @@ theArticle = article ?
           fontStyle  normal
           color emC
 
-     code ? codeBlocks
+     p |> code ?
+       do codeBlocks
+          sym2 padding 0 (px 4)
 
      pre ?
        do box
           codeBlocks
-          margin       nil (unit (-1)) u1 (unit (-1))
-          sym padding  u1
-          fontSize     (px 18)
+          margin       nil (unit (0)) u1 (unit (0))
+          padding      (half 1) u1 (half 1) u1
+          fontSize     (px 17)
           overflowX    scroll
 
      img ?
@@ -128,6 +136,8 @@ theArticle = article ?
 meta :: Css
 meta = ".meta" ?
   do textAlign (alignSide sideRight)
+     float     sideRight
+     marginTop (unit (-1))
      Clay.span ?
        do display block
           smallFont
@@ -173,15 +183,20 @@ smallFont =
 
 codeBlocks :: Css
 codeBlocks = 
-  do bg
-     color  (rgba 0 60 140 200)
-     border solid (px 1) (bgC -. 20)
+  do bgBorder 20
+     fontFamily ["Courier"] [monospace]
+     syntax
 
-bgC, txtC, emC, linkC :: Color
-bgC   = rgb 246 246 246
-txtC  = rgb   0  20  40
-emC   = rgb  40  20   0
-linkC = rgb   0 100 180
+syntax :: Css
+syntax =
+  do color (rgb 0 60 100)
+     ".kw" ? fontWeight bold
+     ".kw" ? color (rgb   0   0    0)
+     ".dt" ? color (rgb   0  40  140)
+     ".dv" ? color (rgb 100   0  200)
+     ".st" ? color (rgb   0  80  200)
+     ".ot" ? color (rgb   0   0    0)
+     ".fu" ? color (rgb   0 160  120)
 
 -------------------------------------------------------------------------------
 
