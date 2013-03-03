@@ -2,7 +2,6 @@
 module Main where
 
 import Clay hiding (menu, contents)
-import Control.Monad
 import Data.Monoid
 import Data.Text (Text)
 import Prelude hiding (all)
@@ -70,7 +69,9 @@ theFooter = footer ?
 
 overview :: Css
 overview =
-  do ".date" ? (smallFont >> float sideRight)
+  do ".date" ?
+       do smallFont
+          float sideRight
      ".read-more" ?
        do marginTop (unit (-1))
           fontSize  (pct 85)
@@ -86,8 +87,10 @@ theArticle = article ?
           sym margin  nil
 
      hr ?
-       do border none nil white
-          paddingBottom u1
+       do bg
+          height       (half 1)
+          border       none nil white
+          marginBottom (half 3)
 
      h1 <> h2 ?
        do sym margin   nil
