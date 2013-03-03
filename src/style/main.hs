@@ -48,6 +48,7 @@ menu = nav ?
 contents :: Css
 contents = ".content" ?
   do backgroundColor (setA 200 white)
+     border          solid (px 1) (setA 10 black)
      padding         u1 u1 u3 u1
 
 theFooter :: Css
@@ -62,9 +63,10 @@ theFooter = footer ?
 
 overview :: Css
 overview =
-  ".read-more" ?
-    do marginTop (unit (-1))
-       fontSize  (pct 85)
+  do ".date" ? (smallFont >> float sideRight)
+     ".read-more" ?
+       do marginTop (unit (-1))
+          fontSize  (pct 85)
 
 theArticle :: Css
 theArticle = article ?
@@ -121,9 +123,8 @@ meta :: Css
 meta = ".meta" ?
   do textAlign (alignSide sideRight)
      Clay.span ?
-       do display  block
-          fontSize (pct 85)
-          color    (setA 160 txtC)
+       do display block
+          smallFont
 
 -------------------------------------------------------------------------------
 
@@ -157,6 +158,11 @@ uiFont =
           hover &
             do color      black
                background white
+
+smallFont :: Css
+smallFont =
+  do fontSize (pct 85)
+     color    (setA 160 txtC)
 
 bgC, txtC, emC, linkC :: Color
 
