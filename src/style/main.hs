@@ -47,7 +47,7 @@ menu = nav ?
 
 contents :: Css
 contents = ".content" ?
-  do backgroundColor (setA 255 white)
+  do backgroundColor (setA 200 white)
      padding         u1 u1 u3 u1
 
 theFooter :: Css
@@ -69,6 +69,7 @@ overview =
 theArticle :: Css
 theArticle = article ?
   do contentFont
+     marginBottom u1
      Main.meta
 
      star ?
@@ -105,6 +106,11 @@ theArticle = article ?
        do fontWeight bold
           fontStyle  normal
           color emC
+
+     code ?
+       do color           (txtC +. 60)
+          backgroundColor bgC
+          border          solid (px 1) (bgC -. 20)
 
      img ?
        do marginLeft  auto
