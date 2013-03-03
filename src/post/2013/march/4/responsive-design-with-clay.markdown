@@ -84,7 +84,7 @@ github](https://github.com/sebastiaanvisser/sebastiaanvisser.github.com).
 
 <hr>
 
-Discuss on [Reddit](http://www.reddit.com/r/haskell/comments/19lpzv/responsive_design_with_clay/)
+Discuss on [Reddit](http://www.reddit.com/r/haskell/comments/19lpzv/responsive_design_with_clay/) or
 [Hacker News](http://news.ycombinator.com/item?id=5315653).
 
 </article>
