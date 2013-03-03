@@ -129,7 +129,7 @@ theArticle = article ?
           margin       nil (unit (0)) u1 (unit (0))
           padding      (half 1) u1 (half 1) u1
           fontSize     (px 17)
-          overflowX    scroll
+          overflowX    auto
 
      img ?
        do marginLeft  auto
