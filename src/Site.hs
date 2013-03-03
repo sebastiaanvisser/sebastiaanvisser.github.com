@@ -1,8 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import Control.Applicative
-import Data.Monoid
 import Hakyll
 
 main :: IO ()
@@ -10,6 +8,7 @@ main = hakyll $
   do images
      styles
      pages
+     postsMarkdown
      posts
      templates
 
@@ -42,17 +41,10 @@ posts = match "post/*/*/*/*.html" $
            >>= loadAndApplyTemplate "template/site.html" defaultContext
            >>= relativizeUrls
 
--------------------------------------------------------------------------------
-
-postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
-
-postList :: ([Item String] -> [Item String]) -> Compiler String
-postList sortFilter = do
-    ps      <- sortFilter <$> loadAll "post/*"
-    itemTpl <- loadBody "template/post-item.html"
-    list    <- applyTemplateList itemTpl postCtx ps
-    return list
+postsMarkdown :: Rules ()
+postsMarkdown = match "post/*/*/*/*.markdown" $
+  do route (setExtension "html")
+     compile $ pandocCompiler
+           >>= loadAndApplyTemplate "template/site.html" defaultContext
+           >>= relativizeUrls
 
