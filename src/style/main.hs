@@ -6,16 +6,19 @@ import Data.Monoid
 import Data.Text (Text)
 import Prelude hiding (all)
 
-main :: IO ()
-main = putCss $
-  do site
-     bodyColumn
-     menu
-     contents
-     theArticle
-     theFooter
+import qualified Data.Text.Lazy.IO as Text
+import qualified Clay.Media        as Media
 
-     photo
+main :: IO ()
+main = Text.putStrLn
+     . renderWith compact []
+     $ do site
+          column
+          menu
+          contents
+          theArticle
+          theFooter
+          overview
 
 -------------------------------------------------------------------------------
 
@@ -25,11 +28,10 @@ site =
        do sym margin  nil
           sym padding nil
 
-     body ?
-       do background (png "bg", bgC)
+     body ?  background (png "bg", bgC)
 
-bodyColumn :: Css
-bodyColumn = "#body" ?
+column :: Css
+column = body |> "div" ?
   do centered
      marginBottom (unit 5)
      -- backgroundImage (png "tile")
@@ -47,18 +49,14 @@ contents :: Css
 contents = ".content" ?
   do backgroundColor (setA 255 white)
      padding         u1 u1 u3 u1
-     overview
 
 theFooter :: Css
 theFooter = footer ?
   do uiFont
-     color     (setA 140 txtC)
-     fontSize  (px 14)
      alignCenter
+     color     (setA 70 txtC)
+     fontSize  (px 14)
      margin    u1 nil u4 nil
-
-photo :: Css
-photo = img # ".me" ? opacity 0.8
 
 -------------------------------------------------------------------------------
 
@@ -126,9 +124,12 @@ meta = ".meta" ?
 centered :: Css
 centered =
   do boxSizing   borderBox
-     width       (unit 25)
-     marginLeft  auto
-     marginRight auto
+     whenWide $
+       do width       pageWidth
+          marginLeft  auto
+          marginRight auto
+     whenNarrow $
+       do width       (pct 100)
 
 contentFont :: Css
 contentFont =
@@ -176,6 +177,9 @@ png im = url ("../image/" <> im <> ".png")
 unit :: Integer -> Size Abs
 unit = px . (* 24)
 
+pageWidth :: Size Abs
+pageWidth = unit 25
+
 nil :: Size Abs
 nil = px 0
 
@@ -184,4 +188,10 @@ u1 = unit 1
 u2 = unit 2
 u3 = unit 3
 u4 = unit 4
+
+whenNarrow :: Css -> Css
+whenNarrow  = query Media.all [Media.maxWidth pageWidth]
+
+whenWide :: Css -> Css
+whenWide = query Media.all [Media.minWidth pageWidth]
 
