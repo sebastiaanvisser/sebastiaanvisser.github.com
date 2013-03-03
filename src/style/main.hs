@@ -2,6 +2,7 @@
 module Main where
 
 import Clay hiding (menu, contents)
+import Control.Monad
 import Data.Monoid
 import Data.Text (Text)
 import Prelude hiding (all)
@@ -28,7 +29,7 @@ site =
        do sym margin  nil
           sym padding nil
 
-     body ?  background (png "bg", bgC)
+     body ? bg
 
 column :: Css
 column = body |> "div" ?
@@ -48,8 +49,8 @@ menu = nav ?
 contents :: Css
 contents = ".content" ?
   do backgroundColor (setA 200 white)
-     border          solid (px 1) (setA 10 black)
-     padding         u1 u1 u3 u1
+     bgBorder        5
+     padding         u1 u1 u2 u1
 
 theFooter :: Css
 theFooter = footer ?
@@ -109,10 +110,15 @@ theArticle = article ?
           fontStyle  normal
           color emC
 
-     code ?
-       do color           (txtC +. 60)
-          backgroundColor bgC
-          border          solid (px 1) (bgC -. 20)
+     code ? codeBlocks
+
+     pre ?
+       do box
+          codeBlocks
+          margin       nil (unit (-1)) u1 (unit (-1))
+          sym padding  u1
+          fontSize     (px 18)
+          overflowX    scroll
 
      img ?
        do marginLeft  auto
@@ -130,7 +136,7 @@ meta = ".meta" ?
 
 centered :: Css
 centered =
-  do boxSizing   borderBox
+  do box
      whenWide $
        do width       pageWidth
           marginLeft  auto
@@ -140,14 +146,14 @@ centered =
 
 contentFont :: Css
 contentFont =
-  do fontFamily ["Merriweather", "Georgia", "Times"] [serif]
+  do merriWeather
      fontSize   (px 16)
      lineHeight u1
      color      txtC
 
 uiFont :: Css
 uiFont =
-  do fontFamily    ["Open Sans", "Helvetixa", "Arial"] [sansSerif]
+  do openSans
      fontSize      (px 20)
      lineHeight    u1
      textTransform uppercase
@@ -161,17 +167,32 @@ uiFont =
 
 smallFont :: Css
 smallFont =
-  do fontSize (pct 85)
-     color    (setA 160 txtC)
+  do openSans
+     fontSize (pct 85)
+     color    (setA 120 txtC)
+
+codeBlocks :: Css
+codeBlocks = 
+  do bg
+     color  (rgba 0 60 140 200)
+     border solid (px 1) (bgC -. 20)
 
 bgC, txtC, emC, linkC :: Color
-
 bgC   = rgb 246 246 246
 txtC  = rgb   0  20  40
 emC   = rgb  40  20   0
 linkC = rgb   0 100 180
 
 -------------------------------------------------------------------------------
+
+bg :: Css
+bg = background (png "bg", bgC)
+
+bgBorder :: Integer -> Css
+bgBorder o = outline solid (px 1) (setA o black)
+
+box :: Css
+box = boxSizing borderBox
 
 animate :: Css
 animate =
@@ -186,8 +207,9 @@ alignCenter = textAlign (alignSide sideCenter)
 png :: Text -> BackgroundImage
 png im = url ("../image/" <> im <> ".png")
 
-unit :: Integer -> Size Abs
+unit, half :: Integer -> Size Abs
 unit = px . (* 24)
+half = px . (* 12)
 
 pageWidth :: Size Abs
 pageWidth = unit 25
@@ -201,8 +223,14 @@ u2 = unit 2
 u3 = unit 3
 u4 = unit 4
 
+openSans :: Css
+openSans = fontFamily ["Open Sans", "Helvetixa", "Arial"] [sansSerif]
+
+merriWeather :: Css
+merriWeather = fontFamily ["Merriweather", "Georgia", "Times"] [serif]
+
 whenNarrow :: Css -> Css
-whenNarrow  = query Media.all [Media.maxWidth pageWidth]
+whenNarrow = query Media.all [Media.maxWidth pageWidth]
 
 whenWide :: Css -> Css
 whenWide = query Media.all [Media.minWidth pageWidth]
