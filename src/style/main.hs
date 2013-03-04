@@ -6,19 +6,17 @@ import Data.Monoid
 import Data.Text (Text)
 import Prelude hiding (all)
 
-import qualified Data.Text.Lazy.IO as Text
-import qualified Clay.Media        as Media
+import qualified Clay.Media as Media
 
 main :: IO ()
-main = Text.putStrLn
-     . renderWith compact []
-     $ do site
-          column
-          menu
-          contents
-          theArticle
-          theFooter
-          overview
+main = putCss $
+  do site
+     column
+     menu
+     contents
+     theArticle
+     theFooter
+     overview
 
 bgC, txtC, emC, linkC :: Color
 bgC   = rgb 246 246 246
