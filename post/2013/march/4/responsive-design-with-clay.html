@@ -61,13 +61,13 @@ siteW <span class="fu">=</span> px <span class="dv">600</span></code></pre>
 <p>Now we can create two queries to represent the layout states in which our site can be, either the screen is wider than the defined page width or narrower.</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell">wide,<span class="ot"> narrow ::</span> <span class="dt">Css</span> <span class="ot">-&gt;</span> <span class="dt">Css</span>
 
-wide   <span class="fu">=</span> query Mq.all [Mq.minWidth pageW]
-narrow <span class="fu">=</span> query Mq.all [Mq.maxWidth pageW]</code></pre>
+wide   <span class="fu">=</span> query Mq.all [Mq.minWidth siteW]
+narrow <span class="fu">=</span> query Mq.all [Mq.maxWidth siteW]</code></pre>
 <p>We can use the two new combinators everywhere in our stylesheet where we want to dispatch based on screen width. So, we create a new version of our <code>content</code> function that has the 600 pixels centered layout on wide screens and a 100% width version on smaller screens.</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">content ::</span> <span class="dt">Css</span>
 content <span class="fu">=</span> <span class="st">&quot;.content&quot;</span> <span class="fu">?</span>
   <span class="kw">do</span> narrow <span class="fu">$</span> <span class="kw">do</span> width       (pct <span class="dv">100</span>)
-     wide   <span class="fu">$</span> <span class="kw">do</span> width       pageW
+     wide   <span class="fu">$</span> <span class="kw">do</span> width       siteW
                  marginLeft  auto
                  marginRight auto</code></pre>
 <p>That’s it! We just made our site a bit more usable on smaller screen sizes by not always sticking to the predefined page width. You can see that it works by resizing your browser window to below the page width and see that it scales appropriately. This is an extremely simple example of course, but by defining your own media query combinators this approach scales up to larger sites nicely.</p>

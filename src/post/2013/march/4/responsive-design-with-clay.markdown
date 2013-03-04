@@ -53,8 +53,8 @@ can be, either the screen is wider than the defined page width or narrower.
 ```haskell
 wide, narrow :: Css -> Css
 
-wide   = query Mq.all [Mq.minWidth pageW]
-narrow = query Mq.all [Mq.maxWidth pageW]
+wide   = query Mq.all [Mq.minWidth siteW]
+narrow = query Mq.all [Mq.maxWidth siteW]
 ```
 
 We can use the two new combinators everywhere in our stylesheet where we want
@@ -66,7 +66,7 @@ screens and a 100% width version on smaller screens.
 content :: Css
 content = ".content" ?
   do narrow $ do width       (pct 100)
-     wide   $ do width       pageW
+     wide   $ do width       siteW
                  marginLeft  auto
                  marginRight auto
 ```
