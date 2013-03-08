@@ -25,7 +25,7 @@ body
 {
   margin-top: 48px;
   position: relative;
-  background: url("/image/australia.png");
+  background: url("../../../../image/australia.png");
   width: 552px;
   height: 552px;
   cursor: none;
