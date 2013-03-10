@@ -8,7 +8,6 @@ main = hakyll $
   do images
      styles
      pages
-     postsMarkdown
      posts
      templates
 
@@ -35,14 +34,7 @@ pages = match "page/*.html" $
            >>= relativizeUrls
 
 posts :: Rules ()
-posts = match "post/*/*/*/*.html" $
-  do route idRoute
-     compile $ getResourceBody
-           >>= loadAndApplyTemplate "template/site.html" defaultContext
-           >>= relativizeUrls
-
-postsMarkdown :: Rules ()
-postsMarkdown = match "post/*/*/*/*.markdown" $
+posts = match "post/*/*/*/*.markdown" $
   do route (setExtension "html")
      compile $ pandocCompiler
            >>= loadAndApplyTemplate "template/site.html" defaultContext
