@@ -2,8 +2,8 @@
 html,
 body
 {
-  margin  : 0px 0px 0px 0px;
-  padding : 0px 0px 0px 0px;
+  margin  : 0 0 0 0;
+  padding : 0 0 0 0;
 }
 
 body
@@ -35,7 +35,7 @@ body > div
 {
 body > div
 {
-  width : 100.0%;
+  width : 100.00000%;
 }
 
 }
@@ -75,7 +75,7 @@ nav a
 
 .content
 {
-  background-color : rgba(255,255,255,0.7813);
+  background-color : rgba(255,255,255,0.7812);
   outline          : solid 1px rgba(0,0,0,0.0195);
   padding          : 24px 24px 48px 24px;
 }
@@ -100,28 +100,28 @@ article .meta span
 {
   display     : block;
   font-family : "Open Sans","Helvetixa","Arial", sans-serif;
-  font-size   : 85.0%;
+  font-size   : 85.00000%;
   color       : rgba(0,20,40,0.4688);
 }
 
 article *
 {
-  padding : 0px 0px 0px 0px;
-  margin  : 0px 0px 0px 0px;
+  padding : 0 0 0 0;
+  margin  : 0 0 0 0;
 }
 
 article hr
 {
   background    : url("../image/bg.png") rgb(246,246,246);
   height        : 12px;
-  border        : none 0px rgb(255,255,255);
+  border        : none 0 rgb(255,255,255);
   margin-bottom : 36px;
 }
 
 article h1,
 article h2
 {
-  margin      : 0px 0px 0px 0px;
+  margin      : 0 0 0 0;
   line-height : 48px;
   margin-top  : 24px;
   color       : rgb(40,20,0);
@@ -224,7 +224,7 @@ article pre
   outline            : solid 1px rgba(0,0,0,0.0781);
   font-family        : "Courier", monospace;
   color              : rgb(0,60,100);
-  margin             : 0px 0px 24px 0px;
+  margin             : 0 0px 24px 0px;
   padding            : 12px 24px 12px 24px;
   font-size          : 17px;
   overflow-x         : auto;
@@ -281,7 +281,7 @@ footer
   text-align     : center;
   color          : rgba(0,20,40,0.2734);
   font-size      : 14px;
-  margin         : 24px 0px 96px 0px;
+  margin         : 24px 0 96px 0;
 }
 
 footer a
@@ -304,7 +304,7 @@ footer a:hover
 .date
 {
   font-family : "Open Sans","Helvetixa","Arial", sans-serif;
-  font-size   : 85.0%;
+  font-size   : 85.00000%;
   color       : rgba(0,20,40,0.4688);
   float       : right;
 }
@@ -312,7 +312,7 @@ footer a:hover
 .read-more
 {
   margin-top : -24px;
-  font-size  : 85.0%;
+  font-size  : 85.00000%;
 }
 
 
