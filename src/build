@@ -12,7 +12,7 @@ then
 else
 
   mkdir -p _dist
-  ghc -odir _dist -hidir _dist -O --make Site.hs -o _dist/site
+  ghc -odir _dist -hidir _dist -O --make Site.hs -o _dist/site &&
   ./_dist/site rebuild
 
 fi
