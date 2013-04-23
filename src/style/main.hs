@@ -69,7 +69,7 @@ overview :: Css
 overview =
   do ".date" ?
        do smallFont
-          float sideRight
+          float floatRight
      ".read-more" ?
        do marginTop (unit (-1))
           fontSize  (pct 85)
@@ -137,7 +137,7 @@ theArticle = article ?
 meta :: Css
 meta = ".meta" ?
   do textAlign (alignSide sideRight)
-     float     sideRight
+     float     floatRight
      marginTop (unit (-1))
      Clay.span ?
        do display block
@@ -230,9 +230,6 @@ half = px . (* 12)
 pageWidth :: Size Abs
 pageWidth = unit 25
 
-nil :: Size Abs
-nil = px 0
-
 u1, u2, u3, u4 :: Size Abs
 u1 = unit 1
 u2 = unit 2
@@ -246,8 +243,8 @@ merriWeather :: Css
 merriWeather = fontFamily ["Merriweather", "Georgia", "Times"] [serif]
 
 whenNarrow :: Css -> Css
-whenNarrow = query Media.all [Media.maxWidth pageWidth]
+whenNarrow = query all [Media.maxWidth pageWidth]
 
 whenWide :: Css -> Css
-whenWide = query Media.all [Media.minWidth pageWidth]
+whenWide = query all [Media.minWidth pageWidth]
 
