@@ -12,7 +12,7 @@ Functional Amsterdam</a> user group. The audience was very enthusiastic and
 provided some thought provoking feedback. Thanks everyone for attending and
 thanks TTY for organizing!
 
-As promised I've put the slides online. The slides were build with HTML/CSS and
+As promised I've put the slides online. The slides were built with HTML/CSS and
 don't render correctly in all browsers, so I put some effort into exporting
 them to PDF. Some of the margins in the PDF ended up a bit weird, but they're
 quite readable after all.
