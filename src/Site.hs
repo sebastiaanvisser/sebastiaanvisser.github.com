@@ -6,6 +6,7 @@ import Hakyll
 main :: IO ()
 main = hakyll $
   do images
+     files
      styles
      pages
      posts
@@ -18,6 +19,11 @@ templates = match "template/*" (compile templateCompiler)
 
 images :: Rules ()
 images = match "image/*" $
+  do route   idRoute
+     compile copyFileCompiler
+
+files :: Rules ()
+files = match "file/*" $
   do route   idRoute
      compile copyFileCompiler
 
