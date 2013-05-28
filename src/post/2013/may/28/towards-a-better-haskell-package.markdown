@@ -12,7 +12,7 @@ But most developers know that package quality varies and not all libraries are
 easy to work with. There are some general guidelines that can make a package
 more user friendly: focus the public interface and documentation on *usage* not
 implementation, keep code simple and don't over-engineer, be careful with
-chances between versions, etc.
+changes between versions, etc.
 
 I would like to share set of guidelines I compiled over time and use in an
 attempt to make my own Haskell package easier to work with.
@@ -113,7 +113,7 @@ the package and changes to it [will break their workflow](http://xkcd.com/1172)
   for a few simple helper functions. Avoid reinventing the wheel, but be
   pragmatic.
 
-* *Don't hide big impact chances behind minor bumps.* Some changes are major
+* *Don't hide big impact changes behind minor bumps.* Some changes are major
   but don't change the API, be careful with those. Silently changing a network
   request timeout to a tenth of it's original value in a minor upgrade might
   break the user's network stack. Fixing an encoding bug that has been the
