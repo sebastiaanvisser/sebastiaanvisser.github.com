@@ -8,18 +8,18 @@ class=date>May 28th, 2013</span> </div>
 Hackage, the package repository for the [Haskell](http://www.haskell.org)
 programming language, has around 5000 package nowadays. This is a lot! More
 libraries for a programming language can generally be considered a good thing.
-But like everyone knows, package quality varies a lot and not all are easy to
-work with. There are some general guidelines that can make a package more user
-friendly: focus the public interface and documentation on *usage* not
+But most developers know that package quality varies and not all libraries are
+easy to work with. There are some general guidelines that can make a package
+more user friendly: focus the public interface and documentation on *usage* not
 implementation, keep code simple and don't over-engineer, be careful with
 chances between versions, etc.
 
-I would like to share set of guidelines I use myself in an attempt to make my
-own Haskell package easier to work with.
+I would like to share set of guidelines I compiled over time and use in an
+attempt to make my own Haskell package easier to work with.
 
 ## Have a clear module structure
 
-From a usability perspective the module structure of a package matters a lot.
+From a usability perspective the module structure of a package really matters.
 Modules are the top level building blocks of a library and tell a lot about
 what is has to offer.
 
@@ -59,7 +59,7 @@ a high-level, they'll figure out the details out themselves eventually.
   package is probably the first thing users see. Make sure there is some
   structure in there, similar functions grouped together, types first, use
   section headers. Add some documentation that explains what the functions and
-  datatypes have to offer, not how they are implemented.
+  datatypes have to offer.
 
 * *Be honest about the shortcomings.* Users will figure them out anyways.
   Clearly documenting things that don't work as expected can save people a lot
@@ -68,12 +68,12 @@ a high-level, they'll figure out the details out themselves eventually.
 * *Create a website with a tutorial.* Documentation within the package is good
   for reference purposes, but is rarely a good starting point. Just a few steps
   to get up and running is good enough most of the time. Haskell code can be
-  abstract and vague some times, concrete examples help.
+  abstract and vague sometimes, concrete examples help.
 
 ## Keep the code simple
 
-Haskell beginners often claim Haskell is a complicated language, requiring a
-big change in the way they think about programming. As if a paradigm shift
+Haskell beginners often claim Haskell is a complicated language requiring a big
+change in the way they think about programming. As if a paradigm shift
 isn't hard enough already, some Haskell packages present their code and their
 API in a more complicated way than necessary.
 
@@ -147,8 +147,8 @@ improve. There are some tricks to simplify collaboration.
 
 The points on my list mostly arrive from my experience with existing Haskell
 libraries, most of which very high quality. I would be lying if I claimed my
-own packages conform to this list entirely. Luckily packages can be
-developed and updated incrementally while knowledge and insight changes.
+own packages conform to this list entirely. Luckily packages can be developed
+and updated incrementally while knowledge and insight changes.
 
 After seeing my share of real world Haskell I'm very much impressed by the
 quality of libraries, but we should never stop thinking about how we can
@@ -156,7 +156,7 @@ improve.
 
 <hr>
 
-Disagree or do you have things that should be added to the list? Let me know!
+Disagree or do you have anything that should be added? Let me know!
 
 <!--
 Discuss on [Reddit](http://www.reddit.com/r/haskell/comments/XXX/) or

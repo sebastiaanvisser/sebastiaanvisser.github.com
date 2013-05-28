@@ -42,10 +42,10 @@
 </div>
 
 <h1 id="towards-a-better-haskell-package">Towards a better Haskell package</h1>
-<p>Hackage, the package repository for the <a href="http://www.haskell.org">Haskell</a> programming language, has around 5000 package nowadays. This is a lot! More libraries for a programming language can generally be considered a good thing. But like everyone knows, package quality varies a lot and not all are easy to work with. There are some general guidelines that can make a package more user friendly: focus the public interface and documentation on <em>usage</em> not implementation, keep code simple and don’t over-engineer, be careful with chances between versions, etc.</p>
-<p>I would like to share set of guidelines I use myself in an attempt to make my own Haskell package easier to work with.</p>
+<p>Hackage, the package repository for the <a href="http://www.haskell.org">Haskell</a> programming language, has around 5000 package nowadays. This is a lot! More libraries for a programming language can generally be considered a good thing. But most developers know that package quality varies and not all libraries are easy to work with. There are some general guidelines that can make a package more user friendly: focus the public interface and documentation on <em>usage</em> not implementation, keep code simple and don’t over-engineer, be careful with chances between versions, etc.</p>
+<p>I would like to share set of guidelines I compiled over time and use in an attempt to make my own Haskell package easier to work with.</p>
 <h2 id="have-a-clear-module-structure">Have a clear module structure</h2>
-<p>From a usability perspective the module structure of a package matters a lot. Modules are the top level building blocks of a library and tell a lot about what is has to offer.</p>
+<p>From a usability perspective the module structure of a package really matters. Modules are the top level building blocks of a library and tell a lot about what is has to offer.</p>
 <ul>
 <li><p><em>Keep the module hierarchy flat.</em> Deeply nested hierarchies might be correct from a theoretical point of view, but don’t necessarily benefit the user. Shallow hierarchies are easier to grasp and bring focus to the modules that are important.</p></li>
 <li><p><em>Use a short top-level namespace.</em> There is no need for long module prefixes when a creatively chosen package name suffices. A quick <code>import Parsec</code> is more convenient than <code>import   Text.ParserCombinators.Parsec</code>. Top level namespaces like <code>Control</code>, <code>Data</code>, and <code>Text</code> rarely add anything.</p></li>
@@ -55,12 +55,12 @@
 <p>Good documentation is a no-brainer upon which everyone agrees. Writing proper documentation takes a lot of work though. Maybe more than we can expect of every open-source volunteer and hobbyist. There are some ways to make a small amount of documentation matter. When a user finds out how to use the package on a high-level, they’ll figure out the details out themselves eventually.</p>
 <ul>
 <li><p><em>Focus documentation on usage, not implementation.</em> Focus on the main use case, don’t go into detail about the billion ways a generic functions can be configured to work under all circumstances. The actual implementation of a library is hardly useful to users that doesn’t even know how to use the API.</p></li>
-<li><p><em>Think about the generated documentation.</em> The <a href="http://www.haskell.org/haddock/">Haddock</a> documentation of a package is probably the first thing users see. Make sure there is some structure in there, similar functions grouped together, types first, use section headers. Add some documentation that explains what the functions and datatypes have to offer, not how they are implemented.</p></li>
+<li><p><em>Think about the generated documentation.</em> The <a href="http://www.haskell.org/haddock/">Haddock</a> documentation of a package is probably the first thing users see. Make sure there is some structure in there, similar functions grouped together, types first, use section headers. Add some documentation that explains what the functions and datatypes have to offer.</p></li>
 <li><p><em>Be honest about the shortcomings.</em> Users will figure them out anyways. Clearly documenting things that don’t work as expected can save people a lot of time.</p></li>
-<li><p><em>Create a website with a tutorial.</em> Documentation within the package is good for reference purposes, but is rarely a good starting point. Just a few steps to get up and running is good enough most of the time. Haskell code can be abstract and vague some times, concrete examples help.</p></li>
+<li><p><em>Create a website with a tutorial.</em> Documentation within the package is good for reference purposes, but is rarely a good starting point. Just a few steps to get up and running is good enough most of the time. Haskell code can be abstract and vague sometimes, concrete examples help.</p></li>
 </ul>
 <h2 id="keep-the-code-simple">Keep the code simple</h2>
-<p>Haskell beginners often claim Haskell is a complicated language, requiring a big change in the way they think about programming. As if a paradigm shift isn’t hard enough already, some Haskell packages present their code and their API in a more complicated way than necessary.</p>
+<p>Haskell beginners often claim Haskell is a complicated language requiring a big change in the way they think about programming. As if a paradigm shift isn’t hard enough already, some Haskell packages present their code and their API in a more complicated way than necessary.</p>
 <ul>
 <li><p><em>Keep type signatures simple.</em> Complicated type signatures are hard to grasp, not only for beginners. Haskell allows for some really generic code and additional type parameters sneak in easy. Keep the package internals general, but expose sane defaults for a first time user.</p></li>
 <li><p><em>Avoid type classes.</em> Type classes are wonderful technology but are by far the easiest way to obscure a library. Avoid them whenever possible. Sometimes it’s better to provide a few concrete helper functions to deal with different types in an API, than to introduce to a type class to abstract them away. Don’t hide complexity behind magic.</p></li>
@@ -85,7 +85,7 @@
 <p>After seeing my share of real world Haskell I’m very much impressed by the quality of libraries, but we should never stop thinking about how we can improve.</p>
 <hr>
 
-<p>Disagree or do you have things that should be added to the list? Let me know!</p>
+<p>Disagree or do you have anything that should be added? Let me know!</p>
 <!--
 Discuss on [Reddit](http://www.reddit.com/r/haskell/comments/XXX/) or
 [Hacker News](http://news.ycombinator.com/item?id=XXX).
