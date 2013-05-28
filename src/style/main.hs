@@ -86,9 +86,9 @@ theArticle = article ?
 
      hr ?
        do bg
-          height       (half 1)
+          height       (unit 1)
           border       none nil white
-          marginBottom (half 3)
+          marginBottom (unit 1)
 
      h1 <> h2 ?
        do sym margin   nil
@@ -101,7 +101,7 @@ theArticle = article ?
           marginBottom u1
 
      h2 ?
-       do fontSize (px 18)
+       do fontSize (px 17)
 
      p  ? marginBottom u1
      ul ? paddingLeft  u2

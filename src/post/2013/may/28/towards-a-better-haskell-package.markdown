@@ -1,22 +1,21 @@
 <article>
 
-<div class=meta>
-<span class=author>Sebastiaan Visser</span>
-<span class=date>May 28th, 2013</span>
-</div>
+<div class=meta> <span class=author>Sebastiaan Visser</span> <span
+class=date>May 28th, 2013</span> </div>
 
-# Towards a better package
+# Towards a better Haskell package
 
 Hackage, the package repository for the [Haskell](http://www.haskell.org)
 programming language, has around 5000 package nowadays. This is a lot! More
 libraries for a programming language can generally be considered a good thing.
 But like everyone knows, package quality varies a lot and not all are easy to
 work with. There are some general guidelines that can make a package more user
-friendly: focus the public interface and documentation on usage not
-implementation, keep you code simple and don't over-engineer, be careful with
-chances between versions, etc. I would like to share a set of guidelines I
-personally use in an attempt to make my own Haskell package easier to work
-with.
+friendly: focus the public interface and documentation on *usage* not
+implementation, keep code simple and don't over-engineer, be careful with
+chances between versions, etc.
+
+I would like to share set of guidelines I use myself in an attempt to make my
+own Haskell package easier to work with.
 
 ## Have a clear module structure
 
@@ -33,10 +32,10 @@ what is has to offer.
   module prefixes when a creatively chosen package name suffices. A quick
   `import Parsec` is more convenient than `import
   Text.ParserCombinators.Parsec`. Top level namespaces like `Control`, `Data`,
-  `Text` rarely add anything.
+  and `Text` rarely add anything.
 
 * *One import, batteries included.* Have one top-level module that
-  exposes the biggest sane default of the library as possible. Requiring a user
+  exposes the biggest sane default of the library as possible. Requiring users
   to import several modules to get even the most basic functionality is
   inconvenient. A common trick is directly export the most important functions
   through the top-level module and expose everything else using module
@@ -44,27 +43,26 @@ what is has to offer.
 
 ## Document package usage
 
-Good documentation is a no-brainer upon which everyone agrees. Writing
-proper documentation takes a lot of work though. Maybe more than we can expect
-of every open-source volunteer and hobbyist. There are some ways to make a
-small amount of documentation matter. When a user finds out how to use the
-package on a high-level, they'll figure out the details out themselves
-eventually.
+Good documentation is a no-brainer upon which everyone agrees. Writing proper
+documentation takes a lot of work though. Maybe more than we can expect of
+every open-source volunteer and hobbyist. There are some ways to make a small
+amount of documentation matter. When a user finds out how to use the package on
+a high-level, they'll figure out the details out themselves eventually.
 
 * *Focus documentation on usage, not implementation.* Focus on the main use
   case, don't go into detail about the billion ways a generic functions can be
   configured to work under all circumstances. The actual implementation of a
-  library is hardly useful to a user that doesn't even know how to use your
-  API.
+  library is hardly useful to users that doesn't even know how to use the API.
 
-* *Think about the generated documentation.* The Haddock documentation of a
-  package is probably the first thing a user sees. Make sure there is some
+* *Think about the generated documentation.* The
+  [Haddock](http://www.haskell.org/haddock/) documentation of a
+  package is probably the first thing users see. Make sure there is some
   structure in there, similar functions grouped together, types first, use
   section headers. Add some documentation that explains what the functions and
   datatypes have to offer, not how they are implemented.
 
 * *Be honest about the shortcomings.* Users will figure them out anyways.
-  Clearly documenting things that won't work as expected can save people a lot
+  Clearly documenting things that don't work as expected can save people a lot
   of time.
 
 * *Create a website with a tutorial.* Documentation within the package is good
@@ -87,9 +85,8 @@ API in a more complicated way than necessary.
 * *Avoid type classes.* Type classes are wonderful technology but are by far
   the easiest way to obscure a library. Avoid them whenever possible. Sometimes
   it's better to provide a few concrete helper functions to deal with different
-  types in your API than to introduce to a type class to abstract them away.
-  Don't hide magic behind complexity when you can keep things simple by being
-  explicit.
+  types in an API, than to introduce to a type class to abstract them away.
+  Don't hide complexity behind magic.
 
 * *Avoid useless identifier prefixes.* Code for qualified imports. Too much
   two and three letter prefixes makes code cryptic and less appealing. Use
@@ -132,20 +129,20 @@ the package and changes to it [will break their workflow](http://xkcd.com/1172)
 Packages are never finished, the more people work on it the faster it will
 improve. There are some tricks to simplify collaboration.
 
-* *Expose internals.*. Export them either in a separate package or
+* *Expose internals.* Export them either in a separate package or
   in a namespace separate from the public API. Forking remains expensive.
   Avoiding a fork by allowing a `Binary` instance for the otherwise opaque data
   constructor through an internals module can save a lot time.
 
-* *Think about licensing* The reusability of a package depends greatly on the
+* *Think about licensing.* The reusability of a package depends greatly on the
   type of license used. Everyone has their own opinion about open source
   software and a variety of licenses are available. At least give it a thought
   and don't just pick one.
 
 * *Host on Github.* Github makes forking and pushing changes
   upstream extremely easy. Forking a package, fixing a bug, requesting a merge
-  back, and a new deploy to Hackage can be done in a matter of hours. Don't
-  like Github? Use of of their competitors. Self hosting rarely benefits
+  back, and a new deploy to Hackage can all be done in a matter of hours. Don't
+  like Github? Use one of their competitors. Self hosting rarely benefits
   collaboration.
 
 The points on my list mostly arrive from my experience with existing Haskell
@@ -153,11 +150,13 @@ libraries, most of which very high quality. I would be lying if I claimed my
 own packages conform to this list entirely. Luckily packages can be
 developed and updated incrementally while knowledge and insight changes.
 
-I've seen my share of real world Haskell and am generally very much impressed
-by the quality of libraries, but we should never stop thinking about how we can
+After seeing my share of real world Haskell I'm very much impressed by the
+quality of libraries, but we should never stop thinking about how we can
 improve.
 
 <hr>
+
+Disagree or do you have things that should be added to the list? Let me know!
 
 <!--
 Discuss on [Reddit](http://www.reddit.com/r/haskell/comments/XXX/) or
