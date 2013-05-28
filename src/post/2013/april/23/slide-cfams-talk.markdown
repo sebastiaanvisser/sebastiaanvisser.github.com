@@ -23,7 +23,7 @@ If you want to learn more about Haskell, [Learn You a Haskell for Great
 Good](http://learnyouahaskell.com/) might be a good place to start.
 
 <br>
-<a href=http://www.meetup.com/funadam/photos/14474852/228250472/><img src=/image/cfams.jpeg></a>
+<a href=http://www.meetup.com/funadam/photos/14474852/228250472/><img src=/image/cfams.png></a>
 <div style=text-align:right><br>(photo by Michel Rijnders)</div>
 
 </article>
