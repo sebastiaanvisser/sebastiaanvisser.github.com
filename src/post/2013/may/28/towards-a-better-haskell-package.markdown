@@ -116,7 +116,7 @@ the package and changes to it [will break their workflow](http://xkcd.com/1172)
 * *Don't hide big impact changes behind minor bumps.* Some changes are major
   but don't change the API, be careful with those. Silently changing a network
   request timeout to a tenth of it's original value in a minor upgrade might
-  break the user's network stack. Fixing an encoding bug that has been the
+  break the user's network stack. Fixing an encoding bug that has been in the
   package for years? Chances are someone assumed this was intended and now has
   a double encoding bug. Be explicit.
 
