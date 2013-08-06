@@ -1,7 +1,7 @@
 <article>
 
 <div class=meta>
-<span class=author>Sebastiaan Visser</span>
+<span class=author>[Sebastiaan Visser](/about.html)</span>
 <span class=date>March 8th, 2013</span>
 </div>
 

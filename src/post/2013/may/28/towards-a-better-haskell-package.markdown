@@ -1,6 +1,6 @@
 <article>
 
-<div class=meta> <span class=author>Sebastiaan Visser</span> <span
+<div class=meta> <span class=author>[Sebastiaan Visser](/about.html)</span> <span
 class=date>May 28th, 2013</span> </div>
 
 # Towards a better Haskell package
