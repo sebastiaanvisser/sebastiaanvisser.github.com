@@ -38,7 +38,7 @@ engines](http://hackage.haskell.org/package/lambdacube-engine) using OpenGL?
 Makefiles? All is possible. In Haskell you can have the performance of C and the
 abstraction of Prolog, it is very versatile.
 
-The idea that is Haskell is mostly suited for a more mathematical style of
+The idea that is Haskell is mostly suited for a mathematical style of
 programming is simply wrong.
 
 <hr>
