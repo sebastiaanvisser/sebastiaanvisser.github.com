@@ -15,7 +15,7 @@ mathematics, but is *not at all* a requirement when you want to learn Haskell
 or build serious software with it.
 
 I don't have any formal background in mathematics, don't know anything about
-category theory. I struggle a lot in reading formally writings, and I have
+category theory. I struggle a lot in reading formal writings, and I have
 never really understood those fancy categorical diagrams. Still, I write
 real-life Haskell code on a daily basis [for a living](http://www.silkapp.com).
 I use __monads__ / __arrows__ / __applicatives__ / __functors__ / __lenses__ /
