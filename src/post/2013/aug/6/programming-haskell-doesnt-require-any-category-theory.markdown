@@ -47,9 +47,6 @@ This post is a slight rewording of a well received
 [comment](http://www.reddit.com/r/haskell/comments/1jeo0p/theres_a_massive_gap_between_the_average_and/cbdy0g5)
 on the [Haskell Reddit](http://www.reddit.com/r/haskell).
 
-<!--
-Discuss on [Reddit]()
-or [Hacker News]()
--->
+Discussion on [Reddit](http://www.reddit.com/r/programming/comments/1jsv8d/programming_haskell_doesnt_require_any_category/)
 
 </article>

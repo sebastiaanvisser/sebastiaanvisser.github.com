@@ -158,7 +158,6 @@ improve.
 
 Disagree or do you have anything that should be added? Let me know!
 
-Discuss on [Reddit](http://www.reddit.com/r/haskell/comments/1f70wi/towards_a_better_haskell_package/)
-or [Hacker News](https://news.ycombinator.com/item?id=5779450).
+Discussion on [Reddit](http://www.reddit.com/r/haskell/comments/1f70wi/towards_a_better_haskell_package/)
 
 </article>
