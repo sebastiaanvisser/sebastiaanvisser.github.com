@@ -288,7 +288,7 @@ conceptually we cannot lift partial lenses into total lenses. By using custom
 `Arrow` type classes (like
 [`ArrowZero`](http://hackage.haskell.org/package/base/docs/Control-Arrow.html#t:ArrowZero)
 and
-[`ArrowFail`](http://hackage.haskell.org/package/fclabels/docs/Data-Label-Point#t:ArrowFail))
+[`ArrowFail`](http://hackage.haskell.org/package/fclabels/docs/Data-Label-Point.html#t:ArrowFail))
 we are actually able to enforce those constraints using the type system.
 
 We can imagine this approach nicely scaling up to different effects.  We could
@@ -403,7 +403,7 @@ concrete type signatures or keep the lens abstract. We can decide whether to
 let partial lenses fail silently using
 [`ArrowZero`](http://hackage.haskell.org/package/base/docs/Control-Arrow.html#t:ArrowZero)
 or preserve the error with
-[`ArrowFail`](http://hackage.haskell.org/package/fclabels/docs/Data-Label-Point#t:ArrowFail).
+[`ArrowFail`](http://hackage.haskell.org/package/fclabels/docs/Data-Label-Point.html#t:ArrowFail).
 We can provide a custom renaming function so we can use an different naming
 strategy than just stripping underscores.
 
