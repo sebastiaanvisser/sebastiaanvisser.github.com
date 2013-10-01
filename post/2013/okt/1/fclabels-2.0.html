@@ -186,7 +186,7 @@ snd<span class="ot"> ::</span> <span class="dt">Lens</span> arr ((a, b) <span cl
 
 readShow
 <span class="ot">  ::</span> (<span class="dt">Show</span> a, <span class="dt">Read</span> a)
-  <span class="ot">=&gt;</span> <span class="dt">Isomorphism</span> <span class="dt">Partial</span> <span class="dt">String</span> a
+  <span class="ot">=&gt;</span> <span class="dt">Iso</span> <span class="dt">Partial</span> <span class="dt">String</span> a
 readShow <span class="fu">=</span> <span class="dt">Iso</span> r s
   <span class="kw">where</span> r <span class="fu">=</span> <span class="dt">Kleisli</span> readMay
         s <span class="fu">=</span> <span class="dt">Kleisli</span> (<span class="dt">Just</span> <span class="fu">.</span> show)

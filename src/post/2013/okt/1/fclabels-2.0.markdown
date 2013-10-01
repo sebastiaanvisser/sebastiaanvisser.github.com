@@ -321,7 +321,7 @@ import Safe (readMay)
 
 readShow
   :: (Show a, Read a)
-  => Isomorphism Partial String a
+  => Iso Partial String a
 readShow = Iso r s
   where r = Kleisli readMay
         s = Kleisli (Just . show)
