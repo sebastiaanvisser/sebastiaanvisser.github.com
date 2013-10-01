@@ -201,12 +201,13 @@ syntax :: Css
 syntax =
   do color (rgb 0 60 100)
      ".kw" ? fontWeight bold
-     ".kw" ? color (rgb   0   0    0)
-     ".dt" ? color (rgb   0  40  140)
-     ".dv" ? color (rgb 100   0  200)
-     ".st" ? color (rgb 200  80  100)
-     ".ot" ? color (rgb   0   0    0)
-     ".fu" ? color (rgb   0 160  120)
+     ".kw" ? color (rgb   0   0   0)
+     ".dt" ? color (rgb  20  60 180)
+     ".dv" ? color (rgb 100   0 200)
+     ".st" ? color (rgb 200  80 100)
+     ".ot" ? color (rgb 160  80  80)
+     ".fu" ? color (rgb   0 160 120)
+     ".co" ? color (rgb 160 160 160)
 
 -------------------------------------------------------------------------------
 
