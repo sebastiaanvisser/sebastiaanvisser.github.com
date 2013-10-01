@@ -117,16 +117,25 @@ theArticle = article ?
           fontStyle  normal
           color emC
 
-     p |> code ?
+     strong ?
+       do fontWeight normal
+          fontStyle  italic
+          fontSize   (px 15)
+          color emC
+
+     p ? code ?
        do codeBlocks
           sym2 padding 0 (px 4)
+
+     p ? a ? code ?  color linkC
 
      pre ?
        do box
           codeBlocks
           margin       nil (unit (0)) u1 (unit (0))
-          padding      (half 1) u1 (half 1) u1
-          fontSize     (px 17)
+          sym padding  (half 1)
+          narrow $ fontSize  (px 14)
+          wide   $ fontSize  (px 16)
           overflowX    auto
 
      img ?
@@ -148,11 +157,11 @@ meta = ".meta" ?
 centered :: Css
 centered =
   do box
-     whenWide $
+     wide $
        do width       pageWidth
           marginLeft  auto
           marginRight auto
-     whenNarrow $
+     narrow $
        do width       (pct 100)
 
 contentFont :: Css
@@ -195,7 +204,7 @@ syntax =
      ".kw" ? color (rgb   0   0    0)
      ".dt" ? color (rgb   0  40  140)
      ".dv" ? color (rgb 100   0  200)
-     ".st" ? color (rgb   0  80  200)
+     ".st" ? color (rgb 200  80  100)
      ".ot" ? color (rgb   0   0    0)
      ".fu" ? color (rgb   0 160  120)
 
@@ -242,9 +251,9 @@ openSans = fontFamily ["Open Sans", "Helvetixa", "Arial"] [sansSerif]
 merriWeather :: Css
 merriWeather = fontFamily ["Merriweather", "Georgia", "Times"] [serif]
 
-whenNarrow :: Css -> Css
-whenNarrow = query all [Media.maxWidth pageWidth]
+narrow :: Css -> Css
+narrow = query all [Media.maxWidth pageWidth]
 
-whenWide :: Css -> Css
-whenWide = query all [Media.minWidth pageWidth]
+wide :: Css -> Css
+wide = query all [Media.minWidth pageWidth]
 
