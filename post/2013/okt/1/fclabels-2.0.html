@@ -209,7 +209,7 @@ asTup3 <span class="fu">=</span> Mono.point <span class="fu">$</span>
        <span class="fu">&lt;*&gt;</span> L.trd3 <span class="fu">&gt;-</span> L.snd <span class="fu">.</span> street</code></pre>
 <p>Here we create a view on the <code>Address</code> data type as a 3-tuple.</p>
 <p>We connect the lenses for 3-tuples to the lenses for the <code>Address</code> data type using the <code>(&gt;-)</code> operator, which can be read as <em>points-to</em>. Now we use the <code>Applicative</code> instance on the connected lenses together with the output constructor <code>(,,)</code> to create a view on the <code>Address</code> type. Because we cannot directly make <code>Lens</code> an instance of <code>Applicative</code> (the types don’t allow this) we use an more generic type <a href="http://hackage.haskell.org/package/fclabels/docs/Data-Label-Point.html#v:Point"><code>Point</code></a> underneath. We can turn a <code>Point</code> back into a proper lens using the <a href="http://hackage.haskell.org/package/fclabels/docs/Data-Label-Mono.html#v:point"><code>point</code></a> function.</p>
-<p>Using the view we can now use to 3-tuples to manipulate addresses.</p>
+<p>Using the view we can now use 3-tuples to manipulate addresses.</p>
 <pre class="sourceCode Haskell"><code class="sourceCode haskell"><span class="fu">&gt;</span> <span class="kw">let</span> addr <span class="fu">=</span> <span class="dt">Address</span> <span class="st">&quot;-&quot;</span> (<span class="st">&quot;Neude&quot;</span>, <span class="dv">1</span>)
 <span class="fu">&gt;</span> set (L.fst3 <span class="fu">.</span> asTup3) <span class="st">&quot;Utrecht&quot;</span> addr
 <span class="dt">Address</span> <span class="st">&quot;Utrecht&quot;</span> (<span class="st">&quot;Neude&quot;</span>, <span class="dv">11</span>)</code></pre>
@@ -229,7 +229,7 @@ swapE <span class="fu">=</span> Poly.point <span class="fu">$</span>
 (left, right) <span class="fu">=</span> <span class="fu">$</span>(getLabel <span class="ch">''</span><span class="dt">Either</span>)</code></pre>
 <p>Because of the abstract nature of the generated lenses and the top level pattern match, it might be required to use <a href="http://www.haskell.org/haskellwiki/Monomorphism_restriction"><code>NoMonomorphismRestriction</code></a> in some cases.</p>
 <h2 id="direct-derivation">Direct derivation</h2>
-<p>The third option is to derive labels for a record by directly wrapping the declaration with the <a href="http://hackage.haskell.org/package/fclabels/docs/Data-Label-Derive.html#v:getLabel"><code>fclabels</code></a> function. The wrapped record definition will be brought into scope together with the derived labels. The labels will be named exactly as in the record definition, the original fields will be stripped from the data type:</p>
+<p>The third option is to derive labels for a record by directly wrapping the declaration with the <a href="http://hackage.haskell.org/package/fclabels/docs/Data-Label-Derive.html#v:fclabels"><code>fclabels</code></a> function. The wrapped record definition will be brought into scope together with the derived labels. The labels will be named exactly as in the record definition, the original fields will be stripped from the data type:</p>
 <pre class="sourceCode Haskell"><code class="sourceCode haskell">fclabels [d<span class="fu">|</span>
   <span class="kw">data</span> <span class="dt">Pt</span> <span class="fu">=</span> <span class="dt">Pt</span>
     {<span class="ot"> ptX ::</span> <span class="dt">Double</span>
@@ -245,7 +245,7 @@ swapE <span class="fu">=</span> Poly.point <span class="fu">$</span>
 <p>We can now also derive labels for GATDs, which wasn’t possible in the previous version. The interesting aspect of (some) GADTs is that even when the type might have multiple constructors, the record fields might still be total. This can happen when the type indices of the GADT are restrictive enough. For example:</p>
 <pre class="sourceCode Haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">Gadt</span> a <span class="kw">where</span>
   <span class="dt">P</span><span class="ot"> ::</span> { _<span class="ot">fa ::</span> a, _<span class="ot">fb ::</span> b } <span class="ot">-&gt;</span> <span class="dt">Gadt</span> (a, b)
-  <span class="dt">Q</span><span class="ot"> ::</span> { _<span class="ot">bi ::</span> (<span class="dt">Bool</span>, <span class="dt">Int</span>) }    <span class="dt">Gadt</span> (<span class="dt">Bool</span>, <span class="dt">Int</span>)
+  <span class="dt">Q</span><span class="ot"> ::</span> { _<span class="ot">bi ::</span> (<span class="dt">Bool</span>, <span class="dt">Int</span>) } <span class="ot">-&gt;</span> <span class="dt">Gadt</span> (<span class="dt">Bool</span>, <span class="dt">Int</span>)
   <span class="dt">R</span><span class="ot"> ::</span> { _<span class="ot">ls ::</span> [<span class="dt">Int</span>]       } <span class="ot">-&gt;</span> <span class="dt">Gadt</span> [<span class="dt">Int</span>]
 
 mkLabel <span class="ch">''</span><span class="dt">Gadt</span></code></pre>

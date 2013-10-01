@@ -367,7 +367,7 @@ underneath. We can turn a `Point` back into a proper lens using the
 [`point`](http://hackage.haskell.org/package/fclabels/docs/Data-Label-Mono.html#v:point)
 function.
 
-Using the view we can now use to 3-tuples to manipulate addresses.
+Using the view we can now use 3-tuples to manipulate addresses.
 
 ```Haskell
 > let addr = Address "-" ("Neude", 1)
@@ -434,7 +434,7 @@ in some cases.
 
 The third option is to derive labels for a record by directly wrapping the
 declaration with the
-[`fclabels`](http://hackage.haskell.org/package/fclabels/docs/Data-Label-Derive.html#v:getLabel)
+[`fclabels`](http://hackage.haskell.org/package/fclabels/docs/Data-Label-Derive.html#v:fclabels)
 function. The wrapped record definition will be brought into scope together
 with the derived labels. The labels will be named exactly as in the record
 definition, the original fields will be stripped from the data type:
@@ -469,7 +469,7 @@ can happen when the type indices of the GADT are restrictive enough. For example
 ```Haskell
 data Gadt a where
   P :: { _fa :: a, _fb :: b } -> Gadt (a, b)
-  Q :: { _bi :: (Bool, Int) }    Gadt (Bool, Int)
+  Q :: { _bi :: (Bool, Int) } -> Gadt (Bool, Int)
   R :: { _ls :: [Int]       } -> Gadt [Int]
 
 mkLabel ''Gadt
