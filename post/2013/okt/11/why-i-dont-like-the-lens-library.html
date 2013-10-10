@@ -44,7 +44,7 @@
 <h1 id="why-i-dont-like-the-lens-library">Why I don’t like the lens library</h1>
 <p>As some of you know I’m the author of <code>fclabels</code>, that other lens library that isn’t <code>lens</code>. I recently released a new version and I’m very happy with result. But I knew beforehand that usage would probably be extremely low. Mainly because of the popularity of the <code>lens</code> library.</p>
 <p>And I’m fine with that.</p>
-<p>I never build <code>fclabels</code> because I wanted people to use my software (maybe just a bit), but I wanted a nice solution for Haskell’s non-composable record labels. I think both <code>fclabels</code> and <code>lens</code> nicely solve this problem, both with slightly different technology and philosophy.</p>
+<p>I never built <code>fclabels</code> because I wanted people to use my software (maybe just a bit), but I wanted a nice solution for Haskell’s non-composable record labels. I think both <code>fclabels</code> and <code>lens</code> nicely solve this problem, both with slightly different technology and philosophy.</p>
 <p>Van Laarhoven lenses are a very clever trick that gives rise to great extensibility, a great basis for a lens library. One of the reasons I actually considered giving up on <code>fclabels</code> in favor of <code>lens</code>. It will save me time as a maintainer and community consensus is mostly in favor of <code>lens</code>.</p>
 <p>But after closer inspection I didn’t. Partially because I still think the design choices in <code>fclabels</code> add something to the ecosystem, but mostly because I think that <code>lens</code> is a vastly over-engineered, intimidating, complex beast. I tried really hard, but I can’t get myself to like the package.</p>
 <p>Maybe an extreme example, but opening the package and just randomly clicking some modules could end up with things like this:</p>
@@ -61,7 +61,7 @@
 <p>I know that not everyone agrees with me, but I also know a lot of people do think the package is intimidating.</p>
 <p>Haskell always attracted me because of small and simple libraries, that focus on solving small problems. Bigger problems are mostly solved by composition of smaller solutions instead of adding more primitives. Van Laarhoven lenses allow for exactly that, <code>lens</code> as a library feels like the exact opposite.</p>
 <p>If we all agree that lenses are an essential addition to the haskell ecosystem, can’t we work towards a small and simple solution? One that we can safely put in the platform and show to first time Haskellers?</p>
-<p>No, I do not propose <code>fclabels</code>. Can’t we just get the essential core ideas out of <code>lens</code> and put that in a library? A <em>small</em> library, with a very carefully crafted interface? No corepresentable distributive indexed coreps, no category theory, not tons of ‘convenient’ operators. Just lenses. Maybe traversables and isomorphisms. Everything else can be build on top.</p>
+<p>No, I do not propose <code>fclabels</code>. Can’t we just get the essential core ideas out of <code>lens</code> and put that in a library? A <em>small</em> library, with a very carefully crafted interface? No corepresentable distributive indexed coreps, no category theory, not tons of ‘convenient’ operators. Just lenses. Maybe traversables and isomorphisms. Everything else can be built on top.</p>
 <hr>
 
 <!--
