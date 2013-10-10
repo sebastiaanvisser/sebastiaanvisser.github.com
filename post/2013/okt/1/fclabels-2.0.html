@@ -35,8 +35,7 @@
   </nav>
 
   <div class="content">
-    
-<article>
+    <article>
 
 <div class="meta">
 <span class="author"><a href="../../../../about.html">Sebastiaan Visser</a></span> <span class="date">Oktober 1st, 2013</span>
@@ -45,7 +44,6 @@
 <h1 id="fclabels-2.0">fclabels 2.0</h1>
 <p>I’m excited to announce a brand new major version of <a href="http://hackage.haskell.org/package/fclabels"><code>fclabels</code></a>. This Haskell library provides first class labels that can act as bidirectional record fields. The labels can be derived automatically using Template Haskell which means you don’t have to write any boilerplate yourself. The labels are implemented as <em>lenses</em> and are fully composable. Lenses can be used to <em>get</em>, <em>set</em> and <em>modify</em> parts of a data type in a consistent way.</p>
 <div style="width: 360px; margin: 0 auto">
-
 <p>In this post:</p>
 <ul>
 <li><a href="#whats-new">What’s new</a></li>
@@ -61,7 +59,6 @@
 <li><a href="#lenses-for-gadts">Lenses for GADTs</a></li>
 </ul>
 </div>
-
 <h2 id="whats-new">What’s new</h2>
 <p>This new version provides a major cleanup of the API and provides a lot more power while not compromising on the simplicity of the interface. We now support lenses for both monomorphic and polymorphic updates, we have total lenses, partial lenses and lenses that can fail with some error.</p>
 <p>There are now several ways to derive the labels from Haskell data types, for both record and non-record types. We can derive labels in scope (the existing method), but we can now also generate them as expressions that can be named and typed manually. Data type declarations can also directly be translated into a variant with first class labels, without needing the underscore prefixes. Examples of the possible derivation methods <a href="#deriving-lenses-in-scope">can be found below</a>.</p>
