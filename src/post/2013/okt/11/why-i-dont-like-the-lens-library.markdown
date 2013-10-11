@@ -9,13 +9,13 @@
 # Why I don't like the lens library
 
 As some of you know I'm the author of `fclabels`, that other lens library that
-isn't `lens`. I recently released a new version and I'm very happy with result.
-But I knew beforehand that usage would probably be extremely low. Mainly
-because of the popularity of the `lens` library.
+isn't `lens`. I recently released a new version and I'm very happy with the
+result.  But I knew beforehand that usage would probably be extremely low.
+Mainly because of the popularity of the `lens` library.
 
 And I'm fine with that.
 
-I never build `fclabels` because I wanted people to use my software (maybe just
+I never built `fclabels` because I wanted people to use my software (maybe just
 a bit), but I wanted a nice solution for Haskell's non-composable record
 labels. I think both `fclabels` and `lens` nicely solve this problem, both with
 slightly different technology and philosophy.
@@ -69,7 +69,7 @@ No, I do not propose `fclabels`. Can't we just get the essential core ideas out
 of `lens` and put that in a library? A *small* library, with a very carefully
 crafted interface? No corepresentable distributive indexed coreps, no category
 theory, not tons of 'convenient' operators. Just lenses. Maybe traversables and
-isomorphisms. Everything else can be build on top.
+isomorphisms. Everything else can be built on top.
 
 <hr>
 
