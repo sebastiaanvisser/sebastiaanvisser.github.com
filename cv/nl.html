@@ -68,11 +68,14 @@
     margin: 0 auto 50px auto;
   }
 
-  .period
+  .period,
+  .links
   {
     color: rgba(0,0,0, 0.6);
     font-size: 80%;
   }
+
+  .links a { color: rgba(0,0,0, 0.6); }
 
   .desc
   {
@@ -94,17 +97,17 @@
   <h2>Persoonlijke informatie</h2>
   <hr>
 
-  <div class=name><strong>Naam:</strong> Sebastiaan Floor Visser</div>
-  <div class=born><strong>Geboren:</strong> 13 juli 1983, Utrecht</div>
-  <div class=address><strong>Adres:</strong> Billitonkade 27a, 3531TG Utrecht, Nederland</div>
+  <div><strong>Naam:</strong> Sebastiaan Floor Visser</div>
+  <div><strong>Geboren:</strong> 13 juli 1983, Utrecht</div>
+  <div><strong>Adres:</strong> Billitonkade 27a, 3531TG Utrecht, Nederland</div>
 
   <br>
 
-  <div class=phone><strong>Telefoon:</strong> +31624828951</div>
-  <div class=email><strong>E-mail:</strong> <a href=mailto:s@fvisser.nl>s@fvisser.nl</a></div>
-  <div class=site><strong>Website:</strong> <a href=http://fvisser.nl>http://fvisser.nl</a></div>
-  <div class=twitter><strong>Twitter:</strong> <a href=https://twitter.com/sfvisser>https://twitter.com/sfvisser</a></div>
-  <div class=github><strong>Github:</strong> <a href=https://github.com/sebastiaanvisser>https://github.com/sebastiaanvisser</a></div>
+  <div><strong>Telefoon:</strong> +31624828951</div>
+  <div><strong>E-mail:</strong> <a href=mailto:s@fvisser.nl>s@fvisser.nl</a></div>
+  <div><strong>Website:</strong> <a href=http://fvisser.nl>http://fvisser.nl</a></div>
+  <div><strong>Twitter:</strong> <a href=https://twitter.com/sfvisser>https://twitter.com/sfvisser</a></div>
+  <div><strong>Github:</strong> <a href=https://github.com/sebastiaanvisser>https://github.com/sebastiaanvisser</a></div>
 
 </section>
 
@@ -115,8 +118,8 @@
   <ul>
 
     <li>
-      <div><span class=role>Founding Engineer, Product designer</span> - <span class=comany><a href=https://silk.co>Silk</a></span></div>
-      <div class=period>Amsterdam, <span class=from>juli 2009</span> - <span class=to>heden</span></div>
+      <div><strong>Founding Engineer, Product designer</strong> — <a href=https://silk.co>Silk</a></div>
+      <div class=period>Amsterdam, juli 2009 — heden</div>
       <img style=float:right;width:100px src=silk.png><br style=clear:both><br>
       <p class=desc>
       Vanaf oprichting medeverantwoordelijk voor de opzet en de ontwikkeling
@@ -132,8 +135,8 @@
 
     <li>
       <hr>
-      <div><span class=role>Software Engineer</span> - <span class=comany>SolidCode</span></div>
-      <div class=period>Utrecht, <span class=from>maart 2009</span> - <span class=to>juni 2009</span></div>
+      <div><strong>Software Engineer</strong> — <span class=comany>SolidCode</span></div>
+      <div class=period>Utrecht, maart 2009 — juni 2009</div>
       <img style=float:right;width:100px src=solid.png><br style=clear:both><br>
       <p class=desc>
       SolidCode werkte aan een digitale pipeline om het pad van krantenredactie
@@ -146,8 +149,8 @@
 
     <li>
       <hr>
-      <div><span class=role>Software Engineer</span> - <span class=comany>Xopus B.V.</span></div>
-      <div class=period>Den Haag, <span class=from>februari 2007</span> - <span class=to>februari 2009</span></div>
+      <div><strong>Software Engineer</strong> — <span class=comany>Xopus B.V.</span></div>
+      <div class=period>Den Haag, februari 2007 — februari 2009</div>
       <img style=float:right;width:50px src=xopus.png><br style=clear:both><br>
       <p class=desc>
       Xopus was een in-browser WYSIWYG editor voor XML-bestanden. Een zeer
@@ -161,14 +164,14 @@
 
     <li>
       <hr>
-      <div><span class=role>Application Developer</span> - <span class=comany>Tiscali</span></div>
-      <div class=period>Utrecht, <span class=from>januari 2006</span> - <span class=to>januari 2007</span></div>
+      <div><strong>Application Developer</strong> — <span class=comany>Tiscali</span></div>
+      <div class=period>Utrecht, januari 2006 — januari 2007</div>
       <img style=float:right;width:100px src=tiscali.png><br style=clear:both><br>
       <p class=desc>
       Ondersteunend werk aan applicaties voor intern gebruik. Voornamelijk
-      administratieve programmatuur voor zowel de technische en administratieve
-      helpdesk, personeelszaken en netwerkbeheer. Alle applicaties werden
-      ontwikkeld in Java met behulp van het Spring framework.
+      administratieve programmatuur voor zowel de helpdesk, personeelszaken en
+      netwerkbeheer. Alle applicaties werden ontwikkeld in Java met behulp van
+      het Spring framework.
       </p>
     </li>
 
@@ -181,8 +184,8 @@
 
   <ul>
     <li>
-      <div><span class=role>MSc, Computing Science</span> - <span class=comany>Universiteit van Utrecht</span></div>
-      <div class=period>Utrecht, <span class=from>2002</span> - <span class=to>2010</span></div>
+      <div><strong>MSc, Computing Science</strong> — <span class=comany>Universiteit van Utrecht</span></div>
+      <div class=period>Utrecht, 2002 — 2010</div>
       <img style=float:right;width:50px src=uu.gif><br style=clear:both><br>
       <p class=desc>
       Masterprogramma Software Technology, met een specialisatie functioneel
@@ -206,22 +209,28 @@
 
   <ul>
     <li>
-      <div><strong>clay</strong> - A Haskell CSS preprocessor</div>
+      <div><strong>clay</strong> — A Haskell CSS preprocessor</div>
+      <div class=links><a href=http://fvisser.nl/clay>Website</a>, <a href=https://github.com/sebastiaanvisser/clay>Source</a></div>
       <img style=float:right;width:50px src=haskell.png><br style=clear:both><br>
       <p class=desc>
-        <a href=http://fvisser.nl/clay>Website</a>
-        <br>
-        <a href=https://github.com/sebastiaanvisser/clay>Github</a>
+        Clay is a CSS preprocessor like LESS and Sass, but implemented as an
+        embedded domain specific language (EDSL) in Haskell. This means that
+        all CSS selectors and style rules are first class Haskell functions,
+        which makes reuse and composability easy.
       </p>
     </li>
     <li>
       <hr>
-      <div><strong>fclabels</strong> - First class composable record labels for Haskell</div>
+      <div><strong>fclabels</strong> — First class composable record labels for Haskell</div>
+      <div class=links> <a href=http://fvisser.nl/post/2013/okt/1/fclabels-2.0.html>Release notes</a>, <a href=https://github.com/sebastiaanvisser/fclabels>Source</a> </div>
       <img style=float:right;width:50px src=haskell.png><br style=clear:both><br>
       <p class=desc>
-        <a href=http://fvisser.nl/post/2013/okt/1/fclabels-2.0.html>Release notes</a>
-        <br>
-        <a href=https://github.com/sebastiaanvisser/fclabels>Github</a>
+        This package provides first class labels that can act as bidirectional
+        record fields. The labels can be derived automatically using Template
+        Haskell which means you don't have to write any boilerplate yourself.
+        The labels are implemented as lenses and are fully composable. Lenses
+        can be used to get, set and modify parts of a data type in a consistent
+        way.
       </p>
     </li>
   </ul>
