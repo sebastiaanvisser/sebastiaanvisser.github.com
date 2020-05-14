@@ -29,9 +29,9 @@ const Styling = () => (
     }
     h1,
     h2 {
-      font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
       text-align: center;
+      font-weight: 500;
     }
     h1 {
       color: #530;
@@ -40,6 +40,10 @@ const Styling = () => (
     h2 {
       color: #005;
       margin: 20px 0 50px 0;
+      letter-spacing: 0.1em;
+    }
+    h1 small {
+      letter-spacing: 0;
     }
     a {
       color: black;

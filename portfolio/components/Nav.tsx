@@ -1,5 +1,4 @@
 import { Portfolio } from '../model/Model'
-import { Fragment } from 'react'
 
 interface Props {
   portfolio: Portfolio
@@ -25,11 +24,9 @@ export const Nav = ({ portfolio }: Props) => (
     <Styling />
     <nav>
       {portfolio.gigs.map(({ title }) => (
-        <Fragment key={title}>
-          <b>
-            <a href={'#' + title}>{title}</a>
-          </b>
-        </Fragment>
+        <a key={title} href={'#' + title}>
+          {title}
+        </a>
       ))}
     </nav>
   </>
