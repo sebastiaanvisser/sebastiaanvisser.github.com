@@ -1,5 +1,38 @@
 import { Portfolio, Gig, Project } from './Model'
 
+const Kanban: Project = {
+  description: [
+    `Quick prototype project of a Kanban-like productivity app on top of the Wireline decentralized operating environment.
+     Running fully in the client without a central server environment.
+     All application data is stored and distributed using a series of custom CRDTs, natively supporting concurrent access by multiple users as well as offline support.`
+  ],
+  visuals: [
+    {
+      img: 'kanban - board settings',
+      description: `Main board overview with access to board settings from the top bar. The board in this screenshot is tracking this project's actual progress.`
+    },
+    {
+      img: 'kanban - card overview',
+      description: `Single card overview showing features like tagging, markdown desctiptions and comments, start and due dates and ownership assignment.`
+    },
+    {
+      img: 'kanban - moving list',
+      description: `Moving around lists and cards using drag and drop. Including the subtle but obligatory Trello-like rotation of the draggable item.`
+    },
+    {
+      img: 'kanban - card checklist',
+      description: `Another card overview showing support for checklists. Progress will be visible on the card thumbnails on the main board.`
+    }
+  ]
+}
+
+const Wireline: Gig = {
+  title: 'Wireline',
+  when: ['Nov 2019', 'May 2020'],
+  note: "Please don't share any of this work publicly.",
+  projects: [Kanban]
+}
+
 const Fourier: Project = {
   title: 'Fourier',
   description: [
@@ -212,5 +245,5 @@ const Silk: Gig = {
 }
 
 export const MyPortfolio: Portfolio = {
-  gigs: [Palantir, Silk]
+  gigs: [Wireline, Palantir, Silk]
 }
