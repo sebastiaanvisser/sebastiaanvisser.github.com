@@ -143,67 +143,67 @@ const Silk: Gig = {
       visuals: [
         {
           img: `explore - map pie charts`,
-          description: ` Numeric distributions as mini pie charts on a map visualization in explore view. Hover actions show details of the underlying data, clicking opens a specific chart with more detailed information.`
+          description: `Numeric distributions as mini pie charts on a map visualization in explore view. Hover actions show details of the underlying data, clicking opens a specific chart with more detailed information.`
         },
         {
           img: `explore - suggestions`,
-          description: ` Grid of visualization suggestions in Silk's explore mode. Suggestions are based on simple heuristics taking input from existing visualizations, data inference, explicit starring actions, and implicit user behavior.`
+          description: `Grid of visualization suggestions in Silk's explore mode. Suggestions are based on simple heuristics taking input from existing visualizations, data inference, explicit starring actions, and implicit user behavior.`
         },
         {
           img: `intelli search`,
-          description: ` Popover search box for Silk quasi-natural language semantic search engine. The input box takes a search string and tries to output a matching part of the knowledge graph in an appropriate presentation.`
+          description: `Popover search box for Silk quasi-natural language semantic search engine. The input box takes a search string and tries to output a matching part of the knowledge graph in an appropriate presentation.`
         },
         {
           img: `page - topbar and layout`,
-          description: ` Initial designs for a cleaner Silk page layout. The design is based on wider visualizations more clearly contrasting the regular text flow of the page. The top bar is an attempt to clean up the page actions into visually less cluttered form.`
+          description: `Initial designs for a cleaner Silk page layout. The design is based on wider visualizations more clearly contrasting the regular text flow of the page. The top bar is an attempt to clean up the page actions into visually less cluttered form.`
         },
         {
           img: `filtering - range filter`,
-          description: ` Exploratory design work for numeric range filters used in Silk's visualization builder. Auto-bucketing numeric values into sensible ranges makes input easier and gives users a sense of the data distribution at the same time.`
+          description: `Exploratory design work for numeric range filters used in Silk's visualization builder. Auto-bucketing numeric values into sensible ranges makes input easier and gives users a sense of the data distribution at the same time.`
         },
         {
           img: `importer - configure`,
-          description: ` Importing raw data from a spreadsheet into Silk used to be a rather opaque process and it was hard to judge the outcome before starting the long running process. This preview based import wizard greatly helped managing our user's expectations and exposed possible issues upfront.`
+          description: `Importing raw data from a spreadsheet into Silk used to be a rather opaque process and it was hard to judge the outcome before starting the long running process. This preview based import wizard greatly helped managing our user's expectations and exposed possible issues upfront.`
         },
         {
           img: `timeline`,
-          description: ` Early draft mock of the Silk activity feed. The feed shows which users have been working on parts of site you might be interested in. Unfortunately, the activity feed has never made it into production.`
+          description: `Early draft mock of the Silk activity feed. The feed shows which users have been working on parts of site you might be interested in. Unfortunately, the activity feed has never made it into production.`
         },
         {
           img: `filter - workflow`,
-          description: ` This design shows the workflow of creating a new filter attached to a Silk visualization. The filter type (numeric range / exists / does not exist / textual match / pick from enumeration) is based on the inferred data type for the selected property. The new filter UI was based on small embeddable pills with the filter configuration as a popover.`
+          description: `This design shows the workflow of creating a new filter attached to a Silk visualization. The filter type (numeric range / exists / does not exist / textual match / pick from enumeration) is based on the inferred data type for the selected property. The new filter UI was based on small embeddable pills with the filter configuration as a popover.`
         },
         {
           img: `page - editing`,
-          description: ` A Silk data-card in edit mode. Edit mode allows users to add new widgets and content to an existing page in WYSIWYG fashion. The factsheet widget allows adding key/values to a card directly indexed into the structured database.`
+          description: `A Silk data-card in edit mode. Edit mode allows users to add new widgets and content to an existing page in WYSIWYG fashion. The factsheet widget allows adding key/values to a card directly indexed into the structured database.`
         },
         {
           img: `visualization - linechart embed`,
-          description: ` Preview of a Silk visualization as it would look when embedded into 3rd party websites. Users could pick a subsets of the visualization's filters and expose them interactively on the embedded widget.`
+          description: `Preview of a Silk visualization as it would look when embedded into 3rd party websites. Users could pick a subsets of the visualization's filters and expose them interactively on the embedded widget.`
         },
         {
           img: `visualization - popup`,
-          description: ` The Silk visualization editor as a popup on top of the existing page UI, instead of opening a new view to do the same thing. Even as a popup there usually is enough space for a configuration and filter bar.`
+          description: `The Silk visualization editor as a popup on top of the existing page UI, instead of opening a new view to do the same thing. Even as a popup there usually is enough space for a configuration and filter bar.`
         },
         {
           img: `page - section config`,
-          description: ` The page section configuration UI. This popup allows users to customize the look and feel of Silk pages. Pages could have multiple sections, containing a flexible column layout and distinctive visual style.`
+          description: `The page section configuration UI. This popup allows users to customize the look and feel of Silk pages. Pages could have multiple sections, containing a flexible column layout and distinctive visual style.`
         },
         {
           img: `twitter card icon`,
-          description: ` Icon design for use in Open Graph Twitter cards.`
+          description: `Icon design for use in Open Graph Twitter cards.`
         },
         {
           img: `rnd - chart axis`,
-          description: ` Research project into figuring out a consistent placements of axis labels on numeric charts. Trying to find a good trade-off between space efficiency and legibility.`
+          description: `Research project into figuring out a consistent placements of axis labels on numeric charts. Trying to find a good trade-off between space efficiency and legibility.`
         },
         {
           img: `signin page`,
-          description: ` Mocks for the new signup page that allows users to create an account and a first Silk site in a single pass. One step, one button and you're ready to import data or start editing pages manually.`
+          description: `Mocks for the new signup page that allows users to create an account and a first Silk site in a single pass. One step, one button and you're ready to import data or start editing pages manually.`
         },
         {
           img: `rnd - timeseries`,
-          description: ` Another small research project into axis label placement
+          description: `Another small research project into axis label placement
             specifically for times series.`
         }
       ]
