@@ -13,7 +13,7 @@ const Kanban: Project = {
     },
     {
       img: 'kanban - card overview',
-      description: `Single card overview showing features like tagging, markdown desctiptions and comments, start and due dates and ownership assignment.`
+      description: `Single card overview showing features like tagging, markdown descriptions and comments, start and due dates, and ownership assignment.`
     },
     {
       img: 'kanban - moving list',
